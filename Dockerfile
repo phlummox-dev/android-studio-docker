@@ -137,4 +137,12 @@ RUN \
 ## For Qt WebEngine on docker
 ENV QTWEBENGINE_DISABLE_SANDBOX 1
 
+ARG caches_url="https://github.com/phlummox-dev/gitpod-android-studio-docker/releases/download/v0.1.3/cached-stuff.txz"
+
+RUN \
+  : "customize studio install and add caches"       && \
+  yes | sdkmanager --install 'build-tools;32.0.0'   && \
+  yes | sdkmanager --install 'platforms;android-32' && \
+  curl -L ${caches_url} | tar xf - --xz -C ~        && \
+  yes | flutter doctor --android-licenses
 

@@ -15,7 +15,7 @@ REPO=phlummox
 
 IMAGE_NAME=gitpod-android-studio
 
-IMAGE_VERSION=0.1.3
+IMAGE_VERSION=0.1.4
 
 print-image-name:
 	@echo $(IMAGE_NAME)
